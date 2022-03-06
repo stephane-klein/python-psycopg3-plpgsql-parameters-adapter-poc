@@ -13,7 +13,7 @@ SELECT create_order1(
 
 
 SELECT create_order1(
-    _order => json_populate_record(
+    _order => jsonb_populate_record(
         NULL::orders,
         '{
            "name": "order 1",
@@ -22,14 +22,14 @@ SELECT create_order1(
         }'
     ),
     _order_items => ARRAY[
-        json_populate_record(
+        jsonb_populate_record(
             NULL::order_items,
             '{
                 "name": "item 1",
                 "quantity": 10
             }'
         ),
-        json_populate_record(
+        jsonb_populate_record(
             NULL::order_items,
             '{
                 "name": "item 2",
@@ -38,3 +38,33 @@ SELECT create_order1(
         )
     ]
 );
+
+
+SELECT create_order1(
+    _order => jsonb_populate_record(
+        NULL::orders,
+        '{
+           "name": "order 1",
+           "order_type": "ENTRY",
+           "planned_execution_datetime_range": "[2022-02-22 00:00:00,)"
+        }'
+    ),
+    _order_items => (
+        SELECT 
+            array_agg(t)
+        FROM jsonb_populate_recordset(
+            NULL::order_items,
+            '[
+                {
+                    "name": "item 1",
+                    "quantity": 10
+                },
+                {
+                    "name": "item 2",
+                    "quantity": 5
+                }
+            ]'
+        ) AS t
+    )
+);
+

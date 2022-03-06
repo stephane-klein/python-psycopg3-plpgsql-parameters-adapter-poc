@@ -1,4 +1,23 @@
 [[package]]
+name = "psycopg"
+version = "3.0.9"
+description = "PostgreSQL database adapter for Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+tzdata = {version = "*", markers = "sys_platform == \"win32\""}
+
+[package.extras]
+binary = ["psycopg-binary (==3.0.9)"]
+c = ["psycopg-c (==3.0.9)"]
+dev = ["black (>=21.12b0)", "dnspython (>=2.1)", "flake8 (>=4.0)", "mypy (>=0.920,!=0.930,!=0.931)", "types-setuptools (>=57.4)", "wheel (>=0.37)"]
+docs = ["Sphinx (>=4.2)", "furo (==2021.11.23)", "sphinx-autobuild (>=2021.3.14)", "sphinx-autodoc-typehints (>=1.12)", "dnspython (>=2.1)", "shapely (>=1.7)"]
+pool = ["psycopg-pool"]
+test = ["mypy (>=0.920,!=0.930,!=0.931)", "pproxy (>=2.7)", "pytest (>=6.2.5)", "pytest-asyncio (>=0.16,<0.17)", "pytest-cov (>=3.0)", "pytest-randomly (>=3.10)"]
+
+[[package]]
 name = "psycopg-binary"
 version = "3.0.9"
 description = "PostgreSQL database adapter for Python -- C optimisation distribution"
@@ -6,12 +25,24 @@ category = "main"
 optional = false
 python-versions = ">=3.6"
 
+[[package]]
+name = "tzdata"
+version = "2021.5"
+description = "Provider of IANA time zone data"
+category = "main"
+optional = false
+python-versions = ">=2"
+
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "06f3823279f2dad8d81781f12a0c00c5ba9165f9e3bb02d3ae53fa0703a5e708"
+content-hash = "fde40398bfdc9d9b0e703d5fd5e35bb7e5d5b3907aefa4b98acbfd58370a3f89"
 
 [metadata.files]
+psycopg = [
+    {file = "psycopg-3.0.9-py3-none-any.whl", hash = "sha256:801ea3fa3ea7f562506dce6f0121d652b2525073294c7c08ce1d4250f6614405"},
+    {file = "psycopg-3.0.9.tar.gz", hash = "sha256:9f72c6bdccfdab405c654ea2e9ed2293a3e9f993f66a37621f796732ce8e1855"},
+]
 psycopg-binary = [
     {file = "psycopg_binary-3.0.9-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:c34ac2e29b11955eff7ca265ecca91279b8dafe5c75caa140a369db9105bb26f"},
     {file = "psycopg_binary-3.0.9-cp310-cp310-manylinux_2_24_aarch64.whl", hash = "sha256:dcd2bd819575ef37d891d186ae77e3acf7021a984bd79e8798ccd9b19a360c2a"},
@@ -63,4 +94,8 @@ psycopg-binary = [
     {file = "psycopg_binary-3.0.9-cp39-cp39-musllinux_1_1_ppc64le.whl", hash = "sha256:3256757512228f715330f68ac84504e2bb0ab5599ba5729278d45dee0ac97702"},
     {file = "psycopg_binary-3.0.9-cp39-cp39-musllinux_1_1_x86_64.whl", hash = "sha256:caf9557a83fd333e1f84f49395ea9ee60aed82e9e451cf805289ad5e0d2819d7"},
     {file = "psycopg_binary-3.0.9-cp39-cp39-win_amd64.whl", hash = "sha256:c3688bf7e539a184ecebcf47eccea8c3640c8176c2ccd75b9d07c5cb4a288446"},
+]
+tzdata = [
+    {file = "tzdata-2021.5-py2.py3-none-any.whl", hash = "sha256:3eee491e22ebfe1e5cfcc97a4137cd70f092ce59144d81f8924a844de05ba8f5"},
+    {file = "tzdata-2021.5.tar.gz", hash = "sha256:68dbe41afd01b867894bbdfd54fa03f468cfa4f0086bfb4adcd8de8f24f3ee21"},
 ]
