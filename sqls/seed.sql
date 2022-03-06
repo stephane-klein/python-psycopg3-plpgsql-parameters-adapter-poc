@@ -37,6 +37,10 @@ CREATE OR REPLACE FUNCTION create_order1(
 ) RETURNS VOID AS $$
 BEGIN
     RAISE NOTICE '_order %', _order;
+
+    RAISE NOTICE 'LOWER(_order.planned_execution_datetime_range) %', LOWER(_order.planned_execution_datetime_range);
+
+    RAISE NOTICE '_order_items %', _order_items;
 END;
 $$ language plpgsql security definer;
 
